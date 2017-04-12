@@ -1,0 +1,36 @@
+
+@font-face {font-family: "iconfont";
+  src: url('../font/iconfont.eot?t=1490879321731'); /* IE9*/
+  src: url('../font/iconfont.eot?t=1490879321731#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('../font/iconfont.woff?t=1490879321731') format('woff'), /* chrome, firefox */
+  url('../font/iconfont.ttf?t=1490879321731') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url('../font/iconfont.svg?t=1490879321731#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+.iconfont {
+  font-family:"iconfont" !important;
+  font-size:16px;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-thumb_up:before { content: "\e601"; }
+
+.icon-thumb_down:before { content: "\e602"; }
+
+.icon-shopping_cart:before { content: "\e603"; }
+
+.icon-remove_circle_outline:before { content: "\e604"; }
+
+.icon-favorite:before { content: "\e605"; }
+
+.icon-keyboard_arrow_right:before { content: "\e606"; }
+
+.icon-close:before { content: "\e607"; }
+
+.icon-check_circle:before { content: "\e608"; }
+
+.icon-arrow_lift:before { content: "\e609"; }
+
+.icon-add_circle:before { content: "\e60a"; }

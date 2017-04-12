@@ -23,6 +23,35 @@ var autoOpenBrowser = !!config.dev.autoOpenBrowser
 var proxyTable = config.dev.proxyTable
 
 var app = express()
+var appData = require('../data.json');
+var seller = appData.seller;
+var goods = appData.goods;
+var ratings = appData.ratings;
+
+var apiRoutes = express.Router();
+
+apiRoutes.get('/seller', function (req, res) {
+	res.json({
+		errno: 0,
+		data: seller
+	});
+});
+
+apiRoutes.get('/goods', function (req, res) {
+	res.json({
+		errno: 0,
+		data: goods
+	});
+});
+
+apiRoutes.get('/ratings', function (req, res) {
+	res.json({
+		errno: 0,
+		data: ratings
+	});
+});
+app.use('/api', apiRoutes);
+
 var compiler = webpack(webpackConfig)
 
 var devMiddleware = require('webpack-dev-middleware')(compiler, {
@@ -74,6 +103,7 @@ var readyPromise = new Promise(resolve => {
 console.log('> Starting dev server...')
 devMiddleware.waitUntilValid(() => {
   console.log('> Listening at ' + uri + '\n')
+
   // when env is testing, don't need open it
   if (autoOpenBrowser && process.env.NODE_ENV !== 'testing') {
     opn(uri)
@@ -81,9 +111,10 @@ devMiddleware.waitUntilValid(() => {
   _resolve()
 })
 
-var server = app.listen(port)
+var server = app.listen(port, "0.0.0.0")
 
 module.exports = {
+
   ready: readyPromise,
   close: () => {
     server.close()
